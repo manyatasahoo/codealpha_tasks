@@ -1,5 +1,5 @@
 (function(){
-  const GEMINI_API_KEY = "AQ.Ab8RN6LMw4uFzu8GysG5GPzGz6Nt1WXD75W-8FhwK3wGfjdznA";
+  const GEMINI_API_KEY = "AIzaSyBHn8D8h8lY-qVm4X0NYrhCYMTvKSZHssw";
   const GEMINI_MODEL = "gemini-3.6-flash";
   const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
