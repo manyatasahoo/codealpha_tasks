@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Translate — Language Translation Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="mark"></span>Translate</div>
+  <h1>Say it in any language.</h1>
+  <p>Type a sentence, pick where it's coming from and where it's going, and get a clean translation back — with speech and one-tap copy.</p>
+</header>
+
+<main>
+  <div class="translator">
+    <div class="lang-row">
+      <div class="lang-select-wrap" id="srcWrap">
+        <select class="lang" id="srcLang" aria-label="Source language"></select>
+      </div>
+      <button class="swap-btn" id="swapBtn" type="button" aria-label="Swap languages" title="Swap languages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>
+      </button>
+      <div class="lang-select-wrap" id="tgtWrap">
+        <select class="lang" id="tgtLang" aria-label="Target language"></select>
+      </div>
+    </div>
+
+    <div class="panes">
+      <div class="pane source">
+        <textarea id="srcText" placeholder="Start typing…" maxlength="480" aria-label="Text to translate"></textarea>
+        <div class="pane-footer">
+          <span class="char-count" id="charCount">0 / 480</span>
+          <div class="icon-btns">
+            <button class="icon-btn" id="listenSrcBtn" type="button" aria-label="Listen to source text" title="Listen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+            </button>
+            <button class="icon-btn" id="clearBtn" type="button" aria-label="Clear text" title="Clear">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2m-9 0 1 14h8l1-14"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pane target">
+        <div class="output-text empty" id="outputText" aria-live="polite">Your translation will appear here.</div>
+        <div class="pane-footer">
+          <span class="copied-tag" id="copiedTag">Copied</span>
+          <div class="icon-btns">
+            <button class="icon-btn" id="listenTgtBtn" type="button" aria-label="Listen to translation" title="Listen" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+            </button>
+            <button class="icon-btn" id="copyBtn" type="button" aria-label="Copy translation" title="Copy" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="translate-btn" id="translateBtn" type="button">
+        <span class="spin"></span>
+        <span class="btn-label">Translate</span>
+      </button>
+      <span class="hint">Auto-translates as you pause, or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd></span>
+    </div>
+  </div>
+
+  <div class="error-banner" id="errorBanner" role="alert"></div>
+</main>
+
+<footer>Translations powered by the Gemini API. Speech uses your browser's built-in voices, so available languages vary by device.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

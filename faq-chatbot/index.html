@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spoke & Wheel — Ask the Mechanic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div>
+        <div class="brand-name">SPOKE &amp; WHEEL</div>
+        <div class="brand-sub">Bike shop &amp; repair, since 2014</div>
+      </div>
+    </div>
+    <div class="hours-pill mono">Mon–Sat 8–7 · Sun 10–4</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Ask the mechanic anything.</h1>
+    <p>Type a question the way you'd ask a person at the counter — about repairs, rentals, hours, or trade-ins. The bot reads your wording, not just keywords, and matches it to the closest thing we've answered before.</p>
+    <button class="hero-cta" onclick="document.getElementById('q').focus()">Start typing below ↓</button>
+  </div>
+</section>
+
+<main>
+  <div class="wrap grid">
+    <div class="chat-panel">
+      <div class="chat-head">
+        <div class="dot"></div>
+        <strong>Shop Assistant</strong>
+        <span>· matches your question to our FAQs</span>
+      </div>
+      <div class="messages" id="messages"></div>
+      <div class="chips-row" id="chips"></div>
+      <form class="composer" id="composer">
+        <input id="q" type="text" placeholder="e.g. can I rent an e-bike for the day?" autocomplete="off">
+        <button type="submit">Ask</button>
+      </form>
+    </div>
+
+    <div class="side">
+      <div class="card">
+        <h3>Quick facts</h3>
+        <div class="fact-row"><span>Basic tune-up</span><span>$45</span></div>
+        <div class="fact-row"><span>Flat repair, walk-in</span><span>~15 min</span></div>
+        <div class="fact-row"><span>Bike rental / day</span><span>$30</span></div>
+        <div class="fact-row"><span>Student discount</span><span>10%</span></div>
+      </div>
+      <div class="card">
+        <h3>How the matching works</h3>
+        <div class="steps">
+          <div class="step"><p><strong>Clean</strong>Lowercase your question, strip punctuation, drop filler words like "the" or "can".</p></div>
+          <div class="step"><p><strong>Weigh</strong>Score each remaining word by how distinctive it is across all our FAQs (TF‑IDF).</p></div>
+          <div class="step"><p><strong>Compare</strong>Measure the angle between your question and every FAQ (cosine similarity).</p></div>
+          <div class="step"><p><strong>Answer</strong>Return the closest match, with a confidence score — or say it isn't sure.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Spoke &amp; Wheel Cycles — 118 Mill Street</span>
+    <span>All matching happens in your browser, nothing is sent anywhere.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
